@@ -1,0 +1,32 @@
+#Here is an example of a program that #determines which is the cheapest shipping #service
+def ground_shipping(weight):
+  if weight > 10:
+    return ((weight * 4.75)+20)
+  elif 10 > weight > 6:
+    return ((weight * 4)+20)
+  elif 6 > weight > 2:
+    return ((weight * 3)+20)
+  else:
+    return ((weight * 1.50)+20)
+
+premium_ground_shipping=125
+
+def drone_shipping(weight):
+  if weight > 10:
+    return (weight * 14.25)
+  elif 10 > weight > 6:
+    return (weight * 12)
+  elif 6 > weight > 2:
+    return (weight * 9)
+  else:
+    return (weight * 4.50)
+
+def cheapest_shipping(weight):
+  if ground_shipping(weight) < drone_shipping(weight) and ground_shipping(weight) < premium_ground_shipping:
+    return ground_shipping(weight)
+  
+  elif drone_shipping(weight) < ground_shipping(weight) and drone_shipping(weight) < premium_ground_shipping:
+    return drone_shipping(weight)
+  else:
+    return premium_ground_shipping
+
